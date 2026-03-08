@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ML Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-8 font-sans">
+
+  <div class="space-y-8">
+    <div class="flex flex-col gap-2">
+      <h1 class="text-3xl font-bold tracking-tight">Welcome to ML Project</h1>
+      <p class="text-gray-500 max-w-2xl">
+        An interactive educational platform to explore Machine Learning and Data Science workflows using Python and Scikit-learn principles.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {% for module in modules %}
+      <a href="{{ module.href }}" class="block group">
+        <div class="h-full border border-gray-200 rounded-lg bg-white shadow-sm transition-all hover:shadow-lg hover:-translate-y-1 overflow-hidden relative p-6">
+          <!-- Background bubble -->
+          <div class="{{ module.bg }} absolute top-0 right-0 w-24 h-24 rounded-full opacity-10 blur-2xl"></div>
+
+          <!-- Icon + Title -->
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 flex items-center justify-center rounded-lg {{ module.bg }}">
+              <!-- You can use inline SVG icons in static/icons folder -->
+              <img src="/static/icons/{{ module.icon }}.svg" class="w-6 h-6 {{ module.color }}" alt="{{ module.title }}">
+            </div>
+            <h2 class="ml-4 text-xl font-semibold">{{ module.title }}</h2>
+          </div>
+
+          <p class="text-sm text-gray-600">{{ module.description }}</p>
+
+          <div class="flex items-center text-sm font-medium text-blue-600 mt-4 opacity-80 group-hover:opacity-100 transition-opacity">
+            Explore Module
+            <span class="ml-2">→</span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+</body>
+</html>

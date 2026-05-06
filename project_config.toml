@@ -1,4 +1,4 @@
-# .replit
+
 # Run the full backend server in development
 run = "npm run dev"
 
